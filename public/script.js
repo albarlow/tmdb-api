@@ -65,15 +65,11 @@ const showRandomMovie = async () => {
   if (movieInfo.childNodes.length > 0) {
     clearCurrentMovie();
   };
-  console.log('1');
   const movies = await getMovies();
-  console.log('2');
   const randomMovie = getRandomMovie(movies);
-  console.log('3');
   const info = await getMovieInfo(randomMovie);
-  console.log('4');
   displayMovie(info);
-  console.log('5');
+  setTimeout(() => { document.getElementById("movieInfo").scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
 };
 
 getGenres().then(populateGenreDropdown);
